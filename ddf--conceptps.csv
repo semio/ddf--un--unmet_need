@@ -1,0 +1,7 @@
+concept,name,concept_type
+name,Name,string
+iso_code,ISO Code,entity_domain
+year,Year(s),time
+age,Age,entity_domain
+unmet_need_section,Unmet need sections,entity_domain
+unmet_need,Unmet need,measure
