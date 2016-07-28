@@ -75,7 +75,18 @@ def extract_datapoints(data):
     dps.iso_code = dps.iso_code.map(int)
     dps.age = dps.age.map(to_concept_id)
 
-    dps.year = dps.year.map(lambda x: fix_time_range(str(x)))
+    if dps.year.dtype == object:
+        # the year column should be int or float when it read from
+        # source file. if its dtype is dtype('O'), then assumed there
+        # are time ranges in the year column.
+        # fix_time_range() returns the middle of the range.
+        import warnings
+        warnings.warn('Time range detected. They will be convert to mid-year of the range.')
+
+        dps.year = dps.year.map(lambda x: fix_time_range(str(x)))
+
+        assert dps.year.dtype == int or dps.year.dtype == float
+
     dps = dps.set_index(['iso_code', 'year', 'age'])
 
     # total can be calculated with spacing and limiting. We will just save 2 sectors
