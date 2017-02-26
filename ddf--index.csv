@@ -1,7 +1,0 @@
-key,value,file
-concept,name,ddf--concepts.csv
-concept,concept_type,ddf--concepts.csv
-"iso_code,age,unmet_need_section,year",unmet_need,ddf--datapoints--unmet_need--by--iso_code--age--unmet_need_section--year.csv
-age,name,ddf--entities--age.csv
-iso_code,name,ddf--entities--iso_code.csv
-unmet_need_section,name,ddf--entities--unmet_need_section.csv
